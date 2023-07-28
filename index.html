@@ -6,39 +6,35 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
-<body>
-    <div id="content">
+<body  >
+    <div>
         <h1>{{title}}</h1>
         <p>{{subTitle}}</p>
     </div>
     <nav>
-        <div v-for="(link,i) in links" >
-            <a :href="link.url">
-            {{link.text}}
-            </a>
+        <div v-for="(link,i) in links" :key="i">
+            <button
+                @click=""
+            >
+                {{link.text}}
+            </button>
         </div>
     </nav>
 
     <script>
         Vue.createApp({
             data(){
-                return {
+                return{
+                    title:"hello vue",
+                    subTitle:"hello i'm tchisama and i'm using vue",
                     links:[
                         {text:"home",url:"home.html"},
                         {text:"about",url:"about.html"},
                         {text:"contact",url:"contact.html"},
                     ]
-                };
-            }
-        }).mount("nav")
-        Vue.createApp({
-            data(){
-                return{
-                    title:"hello vue",
-                    subTitle:"hello i'm tchisama and i'm using vue"
                 }
             }
-        }).mount("#content")
+        }).mount("body")
     </script>
 </body>
 </html>
