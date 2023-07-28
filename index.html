@@ -12,14 +12,22 @@
         <p>{{subTitle}}</p>
     </div>
     <nav>
-        <div v-for="(link,i) in links">{{link + i}}</div>
+        <div v-for="(link,i) in links" >
+            <a :href="link.url">
+            {{link.text}}
+            </a>
+        </div>
     </nav>
 
     <script>
         Vue.createApp({
             data(){
                 return {
-                    links:["home","about","contact"]
+                    links:[
+                        {text:"home",url:"home.html"},
+                        {text:"about",url:"about.html"},
+                        {text:"contact",url:"contact.html"},
+                    ]
                 };
             }
         }).mount("nav")
